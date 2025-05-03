@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea arriba para que no se centre verticalmente si es corto */
+    min-height: 100vh;
+    background-color: #f4f4f4; /* O el color que prefieras */
+    margin: 0;
+    padding: 20px; /* Espacio alrededor */
+    box-sizing: border-box; 
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Ancho máximo del formulario */
+    overflow: hidden; /* Evita que elementos se salgan durante la transición */
+    box-sizing: border-box;
+}
+
+.form-section {
+    display: none; /* Oculta todas las secciones por defecto */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateX(20px); /* Empieza ligeramente a la derecha */
+    animation: fadeIn 0.5s forwards; /* Para la primera sección */
+}
+
+.form-section.active {
+    display: block; /* Muestra la sección activa */
+    opacity: 1;
+    transform: translateX(0); /* La trae a su posición normal */
+}
+
+/* Animación simple para la entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Estilos para botones, inputs, etc. (Adapta a tu gusto) */
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button, .whatsapp-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.next-btn {
+    background-color: #007bff;
+    color: white;
+    float: right; /* Alinea a la derecha */
+}
+
+.prev-btn {
+    background-color: #6c757d;
+    color: white;
+    float: left; /* Alinea a la izquierda */
+}
+
+.whatsapp-btn {
+   background-color: #25D366; /* Color WhatsApp */
+   color: white;
+   text-decoration: none; /* Quita subrayado de enlace */
+   display: inline-block; /* Para aplicar padding y centrar */
+   text-align: center;
+   width: calc(100% - 100px); /* Ajusta ancho si es necesario */
+   margin-left: 10px; /* Espacio del botón atrás */
+}
+
+button:hover, .whatsapp-btn:hover {
+    opacity: 0.9;
+}
+
+/* Clearfix para los floats de los botones */
+.form-section::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#summary {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+#summary li {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 5px;
+}

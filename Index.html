@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Cita</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="form-container">
+        <h1>Reserva tu Cita</h1>
+
+        <div class="form-section active" id="section-nombre">
+            <h2>Paso 1: Tu Nombre</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <button type="button" class="next-btn" onclick="goToSection('section-servicio', 'nombre')">Siguiente &rarr;</button>
+        </div>
+
+        <div class="form-section" id="section-servicio">
+            <h2>Paso 2: Elige el Servicio</h2>
+            <select id="servicio" name="servicio" required>
+                <option value="" disabled selected>Selecciona un servicio...</option>
+                <option value="Corte Clásico">Corte Clásico</option>
+                <option value="Corte Premium">Corte Premium</option>
+                <option value="Corte con Barba">Corte con Barba</option>
+                <option value="Barba Sola">Barba Sola</option>
+            </select>
+            <button type="button" class="prev-btn" onclick="goToSection('section-nombre')">&larr; Atrás</button>
+            <button type="button" class="next-btn" onclick="goToSection('section-dia', 'servicio')">Siguiente &rarr;</button>
+        </div>
+
+        <div class="form-section" id="section-dia">
+             <h2>Paso 3: Elige el Día</h2>
+             <input type="date" id="dia" name="dia" required> 
+             <button type="button" class="prev-btn" onclick="goToSection('section-servicio')">&larr; Atrás</button>
+             <button type="button" class="next-btn" onclick="goToSection('section-horario', 'dia')">Siguiente &rarr;</button>
+        </div>
+
+         <div class="form-section" id="section-horario">
+             <h2>Paso 4: Elige el Horario</h2>
+             <select id="horario" name="horario" required>
+                 <option value="" disabled selected>Selecciona mañana o tarde...</option>
+                 <option value="Mañana">Mañana (9am - 12pm)</option>
+                 <option value="Tarde">Tarde (2pm - 6pm)</option>
+             </select>
+             <button type="button" class="prev-btn" onclick="goToSection('section-dia')">&larr; Atrás</button>
+             <button type="button" class="next-btn" onclick="goToSection('section-confirmar', 'horario')">Revisar y Agendar &rarr;</button> 
+        </div>
+
+        <div class="form-section" id="section-confirmar">
+            <h2>Paso 5: Confirmar Datos</h2>
+            <p>Revisa tu selección:</p>
+            <ul id="summary">
+                </ul>
+             <button type="button" class="prev-btn" onclick="goToSection('section-horario')">&larr; Atrás</button>
+             <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn" onclick="generateWhatsAppLink()">Agendar Cita en WhatsApp</a>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
